@@ -8,11 +8,20 @@ class Cart {
     function __construct($_owner)
     {
         $this->setOwner($_owner);
-        $this->setTotal();
     }
 
     function addProduct($product){
         $this->list[] = $product;
+    }
+
+    function calcTotal($arr){
+        if(empty($arr)){
+            $this->total = 0;
+        } else {
+            foreach($arr as $obj){
+                $this->total += $obj->getFullPrice();
+            }
+        }
     }
 
     /**
@@ -46,8 +55,6 @@ class Cart {
      */
     public function setTotal(): self
     {
-        $this->total = 100;
-
         return $this;
     }
 
@@ -57,9 +64,11 @@ class Cart {
      */
     public function getTotal()
     {
-        if($this->owner->isRegistered === false){
+        if($this->owner->getIsRegistered() === false){
+            $this->calcTotal($this->list);
             return $this->total;
-        } else if ($this->owner->isRegistered === true){
+        } else if ($this->owner->getIsRegistered() === true){
+            $this->calcTotal($this->list);
             return $this->total * 0.8;
         }
     }

@@ -5,7 +5,7 @@ class User {
     private $creditCardExpireMonth;
     private $creditCardExpireYear;
     private $creditCardAvailable;
-    public $isRegistered;
+    private $isRegistered;
 
     function __construct($_name, $_creditCardExpireMonth, $_creditCardExpireYear, $_isRegistered)
     {

@@ -52,9 +52,9 @@ class Product
     /**
      * Get the value of price
      */
-    public function getPrice()
+    public function getFullPrice()
     {
-        return $this->price;
+        return $this->fullPrice;
     }
 
     /**
