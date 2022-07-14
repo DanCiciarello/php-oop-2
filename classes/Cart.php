@@ -55,11 +55,11 @@ class Cart {
     /**
      * Get the value of total
      */
-    public function getTotal($userRegistered)
+    public function getTotal()
     {
-        if(!$userRegistered){
+        if($this->owner->isRegistered === false){
             return $this->total;
-        } else if ($userRegistered){
+        } else if ($this->owner->isRegistered === true){
             return $this->total * 0.8;
         }
     }

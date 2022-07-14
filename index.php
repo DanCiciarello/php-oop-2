@@ -89,24 +89,34 @@ var_dump($user03);
 var_dump("--------------------------------------------------------");
 
 
-var_dump("Esempio di carrello con aggiunta di 2 prodotti");
+var_dump("Esempio di carrello di utente registrato con aggiunta di 2 prodotti");
+$cart01 = new Cart($user01);
+$cart01->addProduct($foodProduct03);
+$cart01->addProduct($healthProduct01);
+var_dump($cart01);
 
-$cart = new Cart($user01);
+var_dump("Esempio di carrello di utente non registrato con aggiunta di 3 prodotti");
+$cart02 = new Cart($user02);
+$cart02->addProduct($foodProduct02);
+$cart02->addProduct($foodProduct01);
+$cart02->addProduct($healthProduct02);
+var_dump($cart02);
 
-$cart->addProduct($foodProduct03);
-$cart->addProduct($healthProduct01);
+var_dump("Esempio di carrello di utente registrato con aggiunta di 1 prodotto");
+$cart03 = new Cart($user03);
+$cart03->addProduct($foodProduct04);
+var_dump($cart03);
 
-var_dump($cart);
 
 var_dump("--------------------------------------------------------");
 
 var_dump("Esempio di prezzo carrello scontato o non scontato");
 var_dump("Totale carrello di utente registrato e con carta valida");
-var_dump($cart->getTotal($user01->getIsRegistered()));
+var_dump($cart01->getTotal());
 var_dump("Totale carrello di utente non registrato e con carta valida");
-var_dump($cart->getTotal($user02->getIsRegistered()));
+var_dump($cart02->getTotal());
 var_dump("Totale carrello di utente registrato e con carta non valida");
-var_dump($cart->getTotal($user03->getIsRegistered()));
+var_dump($cart03->getTotal());
 
 
 ?>
