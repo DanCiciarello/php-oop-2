@@ -119,4 +119,12 @@ var_dump("Totale carrello di utente registrato e con carta non valida");
 var_dump($cart03->getTotal());
 
 
+
+var_dump("--------------------------------------------------------");
+
+var_dump("Esempio di checkout");
+var_dump($cart01->checkOut());
+var_dump($cart02->checkOut());
+var_dump($cart03->checkOut());
+
 ?>

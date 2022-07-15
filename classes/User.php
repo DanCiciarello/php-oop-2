@@ -4,7 +4,7 @@ class User {
     private $name;
     private $creditCardExpireMonth;
     private $creditCardExpireYear;
-    private $creditCardAvailable;
+    // private $creditCardAvailable;
     private $isRegistered;
 
     function __construct($_name, $_creditCardExpireMonth, $_creditCardExpireYear, $_isRegistered)
@@ -12,7 +12,7 @@ class User {
         $this->setName($_name);
         $this->setCreditCardExpireMonth($_creditCardExpireMonth);
         $this->setCreditCardExpireYear($_creditCardExpireYear);
-        $this->setCreditCardAvailable();
+        // $this->setCreditCardAvailable();
         $this->setIsRegistered($_isRegistered);
     }
 
@@ -81,28 +81,28 @@ class User {
     /**
      * Get the value of creditCardAvailable
      */
-    public function getCreditCardAvailable()
-    {
-        return $this->creditCardAvailable;
-    }
+    // public function getCreditCardAvailable()
+    // {
+    //     return $this->creditCardAvailable;
+    // }
 
     /**
      * Set the value of creditCardAvailable
      */
-    public function setCreditCardAvailable(): self
-    {
-        // Controllo il mese e l'anno corrente
-        $currentMonth = (int) date('m');
-        $currentYear = (int) date('Y');
-        // Controllo la validità della carta
-        if($this->creditCardExpireYear <= $currentYear && $this->creditCardExpireMonth < $currentMonth){
-            $this->creditCardAvailable = false;
-        } else {
-            $this->creditCardAvailable = true;
-        }
+    // public function setCreditCardAvailable(): self
+    // {
+    //     // Controllo il mese e l'anno corrente
+    //     $currentMonth = (int) date('m');
+    //     $currentYear = (int) date('Y');
+    //     // Controllo la validità della carta
+    //     if($this->creditCardExpireYear <= $currentYear && $this->creditCardExpireMonth < $currentMonth){
+    //         $this->creditCardAvailable = false;
+    //     } else {
+    //         $this->creditCardAvailable = true;
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
     /**
      * Get the value of isRegistered

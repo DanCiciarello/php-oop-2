@@ -15,6 +15,7 @@ class Cart {
     }
 
     function calcTotal($arr){
+        $this->total = 0;
         if(empty($arr)){
             $this->total = 0;
         } else {
@@ -22,6 +23,20 @@ class Cart {
                 $this->total += $obj->getFullPrice();
             }
         }
+    }
+
+    function checkOut(){
+        // Controllo il mese e l'anno corrente
+        $currentMonth = (int) date('m');
+        $currentYear = (int) date('Y');
+        // Controllo la validità della carta
+        if($this->owner->getCreditCardExpireYear() <= $currentYear && $this->owner->getCreditCardExpireMonth() < $currentMonth){
+            echo "Non sei abiliato a completare il pagamento, la tua carta di credito è scaduta.";
+        } else {
+            echo "Sei abilitato a completare il pagamento, per un totale di €" . $this->getTotal();
+        }
+
+        return $this;
     }
 
     /**
