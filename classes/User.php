@@ -1,6 +1,11 @@
 <?php
 
+require_once __DIR__ . "/../traits/Utility.php";
+
 class User {
+
+    use Utility;
+
     private $name;
     private $creditCardExpireMonth;
     private $creditCardExpireYear;
@@ -29,8 +34,11 @@ class User {
      */
     public function setName($name): self
     {
-        $this->name = $name;
-
+        try {
+            $this->name = $this->checkString($name);
+        } catch(Exception $e){
+            echo "Non è stato inserito un testo valido.";
+        };
         return $this;
     }
 
