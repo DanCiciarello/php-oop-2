@@ -79,13 +79,13 @@ class Cart {
      */
     public function getTotal()
     {
-        if($this->owner->getIsRegistered() === false){
-            $this->calcTotal($this->list);
-            return $this->total;
-        } else if ($this->owner->getIsRegistered() === true){
-            $this->calcTotal($this->list);
-            return $this->total * 0.8;
-        }
+        // if($this->owner->getIsRegistered() === false){
+        //     $this->calcTotal($this->list);
+        //     return $this->total;
+        // } else if ($this->owner->getIsRegistered() === true){
+        //     $this->calcTotal($this->list);
+        //     return $this->total * 0.8;
+        // }
     }
 }
 
